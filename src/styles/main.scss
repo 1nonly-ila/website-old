@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700");
+
+:root {
+  --body-background: #18181b;
+  --text-color: #ffffffa0;
+  --scrollbar-thumb-color: #5e5e5e;
+  --hero-background-to: #0d0d0f;
+  --h1-color: #ffffffe6;
+  --svg-filter: invert(70%) sepia(0) saturate(0) hue-rotate(218deg)
+    brightness(98%) contrast(81%);
+}
+
+::-webkit-scrollbar {
+  @apply w-2;
+
+  &-thumb {
+    @apply bg-$scrollbar-thumb-color;
+  }
+}
+
+html {
+  font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-$body-background text-$text-color;
+}
+
+p {
+  @apply text-xl;
+}
+
+a {
+  @apply text-lg font-medium;
+}
+
+h1 {
+  @apply text-$h1-color;
+}
+
+section {
+  @apply max-w-screen-md m-auto;
+}
+
+svg {
+  @apply w-7 h-7;
+  filter: var(--svg-filter);
+
+  &:is([tech-logo]) {
+    @apply p-4 w-18 h-18 filter-none;
+  }
+
+  &:not([tech-logo]) {
+    @apply hover:opacity-75;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --body-background: #fff;
+    --text-color: var(--scrollbar-thumb-color);
+    --hero-background-to: #b47aff;
+    --h1-color: #18181b;
+    --svg-filter: invert(36%) sepia(27%) saturate(0) hue-rotate(184deg)
+      brightness(97%) contrast(102%);
+  }
+}
